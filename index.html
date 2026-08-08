@@ -15,21 +15,17 @@
   --muted:#9E8E7E;
   --sand:#C9A96E;
   --amber:#D4843E;
-  --rose:#B86B6B;
-  --deep:#8B5A2B;
   --hairline:rgba(240,230,216,0.06);
   --glow:rgba(212,132,62,0.15);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow:hidden}
 
-/* Grain overlay */
 .grain{
   position:fixed;inset:0;z-index:9999;pointer-events:none;
   opacity:0.035;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat:repeat;
-  background-size:256px 256px;
+  background-repeat:repeat; background-size:256px 256px;
 }
 
 .presentation{width:100%;height:100%;position:relative}
@@ -45,7 +41,6 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--text);font-fam
   position:absolute;inset:0;z-index:0;
   background-size:cover;background-position:center;
 }
-.slide-bg video{width:100%;height:100%;object-fit:cover}
 .slide-bg::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(12,8,6,0.2) 0%,rgba(12,8,6,0.7) 50%,rgba(12,8,6,0.95) 100%);
@@ -66,7 +61,6 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--text);font-fam
   display:flex;flex-direction:column;
 }
 
-/* Section tag */
 .section-tag{
   font-family:'JetBrains Mono',monospace;font-size:11px;
   font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
@@ -76,16 +70,13 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--text);font-fam
   content:'';display:inline-block;width:24px;height:1px;background:var(--amber);opacity:0.5;
 }
 
-/* Typography */
 h1,h2,h3{font-family:'Syne',sans-serif;font-weight:700;line-height:1.08;letter-spacing:-0.03em}
 h1{font-size:clamp(40px,6vw,84px)}
 h2{font-size:clamp(30px,4vw,56px)}
 h3{font-size:clamp(20px,2.2vw,32px);font-weight:600}
 p,li{font-size:15px;line-height:1.75;color:var(--text);font-weight:300}
 .muted{color:var(--muted)}
-.accent{color:var(--sand)}
 
-/* Lists */
 ul{list-style:none;padding:0}
 ul li{position:relative;padding-left:22px;margin-bottom:11px}
 ul li::before{
@@ -93,7 +84,6 @@ ul li::before{
   background:linear-gradient(90deg,var(--amber),var(--sand));
 }
 
-/* Hairline */
 .hairline{height:1px;background:var(--hairline);width:100%}
 .hairline-glow{
   height:1px;width:100%;
@@ -101,11 +91,9 @@ ul li::before{
   opacity:0.3;
 }
 
-/* Layouts */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
 
-/* Navigation */
 .nav-dots{
   position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:100;
   display:flex;flex-direction:column;gap:14px;
@@ -135,7 +123,6 @@ ul li::before{
 }
 .slide-counter span{color:var(--amber)}
 
-/* Cover */
 .cover-slide .slide-content{justify-content:center;align-items:center;text-align:center}
 .cover-title{
   font-size:clamp(52px,9vw,140px);font-weight:800;letter-spacing:-0.05em;
@@ -163,7 +150,6 @@ ul li::before{
   pointer-events:none;z-index:0;
 }
 
-/* Role boxes */
 .role-box{
   background:rgba(26,18,14,0.5);border:1px solid var(--hairline);
   padding:32px;position:relative;overflow:hidden;
@@ -175,7 +161,6 @@ ul li::before{
 }
 .role-box h3{margin-bottom:18px;color:var(--sand);font-size:18px}
 
-/* Why cards */
 .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:28px}
 .why-card{
   background:rgba(26,18,14,0.4);border:1px solid var(--hairline);
@@ -190,45 +175,9 @@ ul li::before{
 }
 .why-card ul li{font-size:13px;margin-bottom:7px}
 
-/* Destination list */
 .destination-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 36px;margin-top:24px}
 .destination-list li{font-size:14px}
 
-/* Marketing with image */
-.marketing-split{
-  display:grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 0;
-  margin-top: 20px;
-  align-items: stretch;
-}
-.marketing-left{
-  padding-right: 48px;
-}
-.marketing-right{
-  position: relative;
-  padding-left: 48px;
-  border-left: 1px solid var(--hairline);
-}
-.marketing-right .right-image{
-  position: absolute;
-  inset: -52px -68px -52px 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-}
-.marketing-right .right-image::after{
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, var(--bg) 0%, rgba(12,8,6,0.85) 30%, rgba(12,8,6,0.6) 100%);
-}
-.marketing-right .marketing-col{
-  position: relative;
-  z-index: 1;
-}
-
-/* Financial */
 .financial-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center;margin-top:28px}
 .financial-left{display:flex;flex-direction:column;gap:20px}
 .big-number{
@@ -254,22 +203,8 @@ ul li::before{
   color:var(--amber);z-index:2;
 }
 
-/* Closing */
-.closing-slide .slide-content{justify-content:center;align-items:center;text-align:center}
-.closing-quote{
-  font-family:'Syne',sans-serif;font-size:clamp(24px,3.2vw,40px);
-  font-weight:600;line-height:1.35;max-width:820px;
-  color:var(--text);
-}
-.closing-quote::before{
-  content:'"';display:block;font-size:80px;color:var(--amber);
-  line-height:0.6;margin-bottom:20px;font-family:'Syne',sans-serif;opacity:0.6;
-}
-
-/* Text half for image slides */
 .text-half{width:58%;padding-right:56px;position:relative;z-index:2}
 
-/* Pillars */
 .pillars{display:flex;gap:16px;margin:24px 0;flex-wrap:wrap}
 .pillar{
   font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;
@@ -277,7 +212,6 @@ ul li::before{
   padding:7px 16px;background:rgba(212,132,62,0.05);
 }
 
-/* Horizon decorative element */
 .horizon{
   width:100%;height:1px;
   background:linear-gradient(90deg,transparent 0%,var(--amber) 50%,transparent 100%);
@@ -288,20 +222,16 @@ ul li::before{
   width:4px;height:4px;border-radius:50%;background:var(--amber);opacity:0.6;
 }
 
-/* Glow orb decoration */
 .glow-orb{
   position:absolute;border-radius:50%;
   background:radial-gradient(circle,rgba(212,132,62,0.06) 0%,transparent 70%);
   pointer-events:none;
 }
 
-/* Responsive */
 @media(max-width:900px){
   .slide{padding:28px}
-  .two-col,.three-col,.financial-grid,.why-grid,.marketing-split{grid-template-columns:1fr;gap:24px}
+  .two-col,.three-col,.financial-grid,.why-grid{grid-template-columns:1fr;gap:24px}
   .text-half{width:100%;padding-right:0}
-  .marketing-right .right-image{display:none}
-  .marketing-right{padding-left:0;border-left:none}
   .nav-dots{right:16px}
   .nav-arrows{right:16px;bottom:16px}
   .slide-counter{left:28px;bottom:16px}
@@ -322,24 +252,24 @@ ul li::before{
   <div class="slide-bg" style="background-image:url('https://ik.imagekit.io/v1yezuvof/E/image.png')"></div>
   <div class="cover-glow"></div>
   <div class="slide-content">
-    <p class="cover-subtitle">Egypt Showcase Partnership</p>
-    <h1 class="cover-title">LYMM × N*RDS</h1>
+    <p class="cover-subtitle"></p>
+    <h1 class="cover-title"></h1>
     <div class="cover-line"></div>
-    <p class="cover-meta">A strategic collaboration introducing LYMM to Egypt<br>through one of the country's most distinctive cultural destination experiences.</p>
+    <p class="cover-meta">.</p>
     <div style="margin-top:48px;display:flex;align-items:center;gap:24px;justify-content:center;">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase;">Presented by N*RDS</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase;"></span>
       <span style="width:4px;height:4px;border-radius:50%;background:var(--amber);opacity:0.5"></span>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase;">In collaboration with DAL Experiences</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase;"></span>
     </div>
   </div>
 </div>
 
-<!-- Slide 2: Two Communities -->
+<!-- Slide 2: 01 | Two Communities. One Shared Vision. -->
 <div class="slide" id="slide-1">
   <div class="slide-content">
     <span class="section-tag">01 | Two Communities. One Shared Vision.</span>
     <div style="max-width:920px;margin-top:12px">
-      <h2 style="margin-bottom:36px">LYMM has built a respected community<br>in Saudi Arabia. N*RDS has spent years<br>building one in Egypt.</h2>
+      <h2 style="margin-bottom:36px">LYMM has built a respected community in Saudi Arabia.<br>N*RDS has spent years building one in Egypt.</h2>
       <p style="margin-bottom:22px;font-size:16px">This partnership brings both communities together through a carefully curated showcase that introduces LYMM to the Egyptian market while creating meaningful cultural exchange between two of the region's most exciting independent collectives.</p>
       <p style="margin-bottom:22px;font-size:16px">Together, LYMM, N*RDS and DAL create a collaboration where music becomes the starting point for a broader cultural exchange between Saudi Arabia and Egypt.</p>
       <div class="horizon"></div>
@@ -348,7 +278,7 @@ ul li::before{
   </div>
 </div>
 
-<!-- Slide 3: Why Egypt? -->
+<!-- Slide 3: 02 | Why Egypt? -->
 <div class="slide" id="slide-2">
   <div class="slide-content">
     <span class="section-tag">02 | Why Egypt?</span>
@@ -366,13 +296,13 @@ ul li::before{
   </div>
 </div>
 
-<!-- Slide 4: Why Fayoum? -->
+<!-- Slide 4: 03 | Why Fayoum? -->
 <div class="slide" id="slide-3">
   <div class="slide-bg left" style="background-image:url('https://ik.imagekit.io/v1yezuvof/E/4c66224a-d6fb-4208-89ff-32f32e6dc86e.JPG?updatedAt=1786215141471')"></div>
   <div class="slide-content">
     <span class="section-tag">03 | Why Fayoum?</span>
     <div class="text-half">
-      <h2 style="margin-bottom:8px">A Destination Worth<br>Traveling For</h2>
+      <h2 style="margin-bottom:8px">A Destination Worth Traveling For</h2>
       <p class="muted" style="margin-bottom:28px;font-size:14px">Located just outside Cairo, Fayoum is one of Egypt's most remarkable destinations.</p>
       <p style="margin-bottom:18px;font-size:15px">Its unique combination of nature, culture and heritage transforms the weekend into a complete destination experience rather than simply another music event.</p>
       <p style="margin-bottom:20px;font-size:14px">Only a short drive from Cairo, it offers a combination of experiences found nowhere else in the country:</p>
@@ -395,7 +325,7 @@ ul li::before{
   </div>
 </div>
 
-<!-- Slide 5: About N*RDS -->
+<!-- Slide 5: 04 | About N*RDS -->
 <div class="slide" id="slide-4">
   <div class="slide-bg left" style="background-image:url('https://ik.imagekit.io/v1yezuvof/E/c4b93ce6-e172-4f56-8c8d-4fbb7033cbfb.JPG?updatedAt=1786215144863')"></div>
   <div class="slide-content">
@@ -410,14 +340,14 @@ ul li::before{
       <p style="margin-bottom:22px;font-size:15px">N*RDS is an independent music and cultural platform based in Egypt, creating intimate destination experiences that celebrate electronic music, art, nature and community.</p>
       <p style="margin-bottom:26px;font-size:15px">Hosted in Fayoum, every edition is intentionally designed around quality over quantity, bringing together carefully selected artists, collectives and audiences through authentic experiences rather than conventional festivals.</p>
       <div class="hairline" style="margin-bottom:24px"></div>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--amber);text-transform:uppercase;margin-bottom:14px">Previous Collaborations</p>
+      <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--amber);text-transform:uppercase;margin-bottom:14px">Previous collaborations include:</p>
       <ul style="margin-bottom:24px">
         <li>Danube Festival • Berlin</li>
         <li>Brich Events • Italy</li>
         <li>Trou • Lebanon</li>
         <li>KNTC • Lebanon</li>
       </ul>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--amber);text-transform:uppercase;margin-bottom:14px">Media Partner</p>
+      <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--amber);text-transform:uppercase;margin-bottom:14px">Media Partner:</p>
       <p style="font-size:15px">Laselky • Egypt</p>
       <div class="hairline" style="margin:24px 0"></div>
       <p style="font-size:14px;color:var(--muted)">Over the past editions, N*RDS has established itself as a trusted regional platform for meaningful collaborations between independent collectives.</p>
@@ -425,11 +355,11 @@ ul li::before{
   </div>
 </div>
 
-<!-- Slide 6: What This Partnership Creates -->
+<!-- Slide 6: 05 | What This Partnership Creates -->
 <div class="slide" id="slide-5">
   <div class="slide-content">
     <span class="section-tag">05 | What This Partnership Creates</span>
-    <h2 style="margin-bottom:36px">This collaboration allows<br>LYMM to:</h2>
+    <h2 style="margin-bottom:36px">This collaboration allows LYMM to:</h2>
     <div class="two-col">
       <ul>
         <li>Launch its first official showcase in Egypt</li>
@@ -448,7 +378,7 @@ ul li::before{
   </div>
 </div>
 
-<!-- Slide 7: Working Together -->
+<!-- Slide 7: 06 | Working Together -->
 <div class="slide" id="slide-6">
   <div class="slide-content">
     <span class="section-tag">06 | Working Together</span>
@@ -486,7 +416,7 @@ ul li::before{
   </div>
 </div>
 
-<!-- Slide 8: Beyond The Music -->
+<!-- Slide 8: 07 | Beyond The Music -->
 <div class="slide" id="slide-7">
   <div class="slide-bg left" style="background-image:url('https://ik.imagekit.io/v1yezuvof/E/da9e77da-a2a8-4f88-a89e-10ec5c1233c0.JPG')"></div>
   <div class="slide-content">
@@ -515,50 +445,49 @@ ul li::before{
   </div>
 </div>
 
-<!-- Slide 9: Marketing & Hospitality -->
+<!-- Slide 9: 08 | Marketing & Brand Presence -->
 <div class="slide" id="slide-8">
-  <div class="slide-bg right" style="background-image:url('https://ik.imagekit.io/v1yezuvof/E/19c45170-f351-48fc-a232-cfdfa94aef25.JPG?updatedAt=1786215148150')"></div>
   <div class="slide-content">
-    <span class="section-tag">08 | Marketing & Brand Presence + Artist Hospitality</span>
-    <div class="marketing-split">
-      <div class="marketing-left">
-        <div class="marketing-col">
-          <h3>Marketing & Brand Presence</h3>
-          <p class="muted" style="margin-bottom:20px;font-size:14px">Not just logos. Actual value</p>
-          <ul>
-            <li>Collaborative announcement strategy</li>
-            <li>Artist features</li>
-            <li>Storytelling</li>
-            <li>Art direction alignment</li>
-            <li>Instagram collaboration posts</li>
-            <li>Onsite branding, subtle</li>
-            <li>Photo and video coverage</li>
-            <li>Video production with Laselky</li>
-            <li>Community engagement</li>
-            <li>Long term digital assets and post event content library</li>
-          </ul>
-        </div>
-      </div>
-      <div class="marketing-right">
-        <div class="marketing-col">
-          <h3>Artist Hospitality</h3>
-          <ul>
-            <li>Accommodation in beautiful Tunis Village, located only ten minutes from the festival venue</li>
-            <li>Transportation between Cairo and Fayoum</li>
-            <li>Local transportation throughout the weekend</li>
-            <li>Artist hospitality</li>
-            <li>Artist coordination and local support</li>
-          </ul>
-        </div>
-      </div>
+    <span class="section-tag">08 | Marketing & Brand Presence</span>
+    <div style="max-width:800px;margin-top:12px">
+      <h3 style="color:var(--sand);margin-bottom:20px;font-size:20px">Not just logos. Actual value</h3>
+      <ul>
+        <li>Collaborative announcement strategy</li>
+        <li>Artist features</li>
+        <li>Storytelling</li>
+        <li>Art direction alignment</li>
+        <li>Instagram collaboration posts</li>
+        <li>Onsite branding, subtle</li>
+        <li>Photo and video coverage</li>
+        <li>Video production with Laselky</li>
+        <li>Community engagement</li>
+        <li>Long term digital assets and post event content library</li>
+      </ul>
     </div>
   </div>
 </div>
 
-<!-- Slide 10: Why N*RDS? -->
+<!-- Slide 10: 09 | Artist Hospitality -->
 <div class="slide" id="slide-9">
+  <div class="slide-bg right" style="background-image:url('https://ik.imagekit.io/v1yezuvof/E/19c45170-f351-48fc-a232-cfdfa94aef25.JPG?updatedAt=1786215148150')"></div>
   <div class="slide-content">
-    <span class="section-tag">09 | Why N*RDS?</span>
+    <span class="section-tag">09 | Artist Hospitality</span>
+    <div class="text-half">
+      <ul>
+        <li>Accommodation in beautiful Tunis Village, located only ten minutes from the festival venue</li>
+        <li>Transportation between Cairo and Fayoum</li>
+        <li>Local transportation throughout the weekend</li>
+        <li>Artist hospitality</li>
+        <li>Artist coordination and local support</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 11: 10 | Why N*RDS? -->
+<div class="slide" id="slide-10">
+  <div class="slide-content">
+    <span class="section-tag">10 | Why N*RDS?</span>
     <p style="margin-bottom:20px;font-size:15px;max-width:940px">The strongest collaborations begin with the right partnership. While N*RDS and LYMM share a common musical direction, artistic standards and community driven approach, every market has its own culture, community and way of doing things. Bringing those elements together through a shared creative vision is what creates experiences that genuinely belong, rather than simply take place.</p>
     <p style="margin-bottom:28px;font-size:15px;max-width:940px;color:var(--muted)">With years of experience building destination events in Fayoum and collaborating with regional and international collectives, N*RDS brings the local knowledge, trusted relationships and operational expertise needed to confidently bring this collaboration to life in Egypt.</p>
     <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--amber);text-transform:uppercase;margin-bottom:18px">The collaboration naturally encompasses:</p>
@@ -612,10 +541,10 @@ ul li::before{
   </div>
 </div>
 
-<!-- Slide 11: Partnership Framework -->
-<div class="slide" id="slide-10">
+<!-- Slide 12: 11 | Partnership Framework -->
+<div class="slide" id="slide-11">
   <div class="slide-content">
-    <span class="section-tag">10 | Partnership Framework</span>
+    <span class="section-tag">11 | Partnership Framework</span>
     <div class="financial-grid">
       <div class="financial-left">
         <p style="font-size:15px;margin-bottom:18px">The objective of this collaboration is to establish LYMM's presence in Egypt through a carefully curated destination showcase while creating long term value for both collectives.</p>
@@ -649,16 +578,17 @@ ul li::before{
   </div>
 </div>
 
-<!-- Slide 12: Looking Beyond One Event -->
-<div class="slide closing-slide" id="slide-11">
+<!-- Slide 13: 12 | Looking Beyond One Event -->
+<div class="slide" id="slide-12">
   <div class="slide-bg heavy" style="background-image:url('https://ik.imagekit.io/v1yezuvof/E/image.png')"></div>
   <div class="slide-content">
-    <span class="section-tag" style="margin-bottom:52px">11 | Looking Beyond One Event</span>
-    <p class="closing-quote" style="margin-bottom:44px">We believe the strongest collaborations don't end when the music stops. They become the foundation for everything that follows.</p>
-    <div style="max-width:720px;text-align:center">
-      <p style="margin-bottom:16px;font-size:15px;color:var(--muted)">This partnership is not intended as a one off collaboration.</p>
-      <p style="margin-bottom:16px;font-size:15px;color:var(--muted)">It represents the beginning of a long term relationship between independent collectives working together to strengthen cultural exchange between Saudi Arabia and Egypt.</p>
-      <p style="font-size:15px;color:var(--muted)">The showcase becomes the first chapter of a broader collaboration with future opportunities to develop artists, communities and experiences across both markets.</p>
+    <span class="section-tag">12 | Looking Beyond One Event</span>
+    <div style="max-width:800px;margin-top:12px">
+      <p style="margin-bottom:22px;font-size:16px">This partnership is not intended as a one off collaboration.</p>
+      <p style="margin-bottom:22px;font-size:16px">It represents the beginning of a long term relationship between independent collectives working together to strengthen cultural exchange between Saudi Arabia and Egypt.</p>
+      <p style="margin-bottom:22px;font-size:16px">The showcase becomes the first chapter of a broader collaboration with future opportunities to develop artists, communities and experiences across both markets.</p>
+      <div class="horizon"></div>
+      <p style="font-family:'Syne',sans-serif;font-size:20px;font-weight:600;color:var(--sand);line-height:1.5">We believe the strongest collaborations don't end when the music stops. They become the foundation for everything that follows.</p>
     </div>
   </div>
 </div>
@@ -669,7 +599,7 @@ ul li::before{
   <button class="nav-arrow" id="prevBtn">←</button>
   <button class="nav-arrow" id="nextBtn">→</button>
 </div>
-<div class="slide-counter"><span id="currentSlide">01</span> / 12</div>
+<div class="slide-counter"><span id="currentSlide">01</span> / 13</div>
 </div>
 
 <script>
